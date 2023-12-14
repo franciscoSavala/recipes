@@ -60,4 +60,11 @@ public class RecipeService {
     public Recipe getRecipe(Long id) {
         return recipeRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
+    public List<Recipe> getRecipes(){
+        return recipeRepository.findAll();
+    }
+
+    public List<Recipe> getRecipesByName(String name) {
+        return recipeRepository.findByNameContainingIgnoreCase(name);
+    }
 }
